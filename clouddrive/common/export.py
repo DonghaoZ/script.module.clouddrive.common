@@ -23,6 +23,7 @@ import json
 import os
 import urllib
 
+from clouddrive.common.image import compress_images
 from clouddrive.common.remote.request import Request
 from clouddrive.common.ui.logger import Logger
 from clouddrive.common.ui.utils import KodiUtils
@@ -147,6 +148,8 @@ class ExportManager(object):
         try:
             req = Request(url, None, headers, download_path = download_path, on_update_download = on_update_download)
             req.request()
+            if download_path.endswith(".jpg") | download_path.endswith(".jpeg") | download_path.endswith(".png"):
+                compress_images(download_path, quality=30)
         except Exception as e:
             ErrorReport.handle_exception(e)
             return False
