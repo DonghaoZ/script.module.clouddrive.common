@@ -4,6 +4,7 @@
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.dateutil"/>
 		<import addon="script.module.pyqrcode"/>
+		<import addon="script.module.requests"/>
 	</requires>
 	<extension point="xbmc.python.module" library="/" />
 	<extension point="xbmc.service" library="service.py" start="login" />
